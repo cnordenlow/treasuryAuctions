@@ -18,7 +18,7 @@ x <- fromJSON(url)
 auctionsRaw <- x$securityList
 
 
-
+#Select fields
 auctionsData <- auctionsRaw %>%
   select(cusip, securityType, securityTerm, offeringAmount, tips, type, interestRate, pricePer100, floatingRate, reopening, 
          auctionDate , maturityDate, securityTerm, term, competitiveAccepted,
@@ -27,7 +27,7 @@ auctionsData <- auctionsRaw %>%
          primaryDealerAccepted , directBidderAccepted,directBidderTendered, indirectBidderAccepted,
          indirectBidderTendered, interestPaymentFrequency)
 
-
+#Date formats
 auctionsData$auctionDate <- as.Date(gsub("\\D", "", auctionsData$auctionDate), format = "%Y%m%d")
 auctionsData$maturityDate <- as.Date(gsub("\\D", "", auctionsData$maturityDate), format = "%Y%m%d")
 
@@ -66,8 +66,3 @@ df <- auctionsData %>%
   filter(floatingRate == "No")%>%
   filter(tips != "TIPS")%>%
   select(Cusip,Date,Term, Type, Size,  SOMA,highYield, allocationPercentage,bidToCoverRatio,Primary, Direct, Indirect)
-
-
-
-
-
