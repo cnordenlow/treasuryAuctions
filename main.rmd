@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo=F, dpi=300, fig.width=5, fig.height=3, dev.args = lis
 
 
 
-## Intro {-}
+## Description {-}
 
 *US Treasury auction results are an important driver if the Fixed Income market. US Treasury auctions are so called dutch auctions, which means that every bidder will get the same price. Auctions provide insight on real demand for underlying securities. To determine if the auction were strong, solid och weak, there are a couple of number that can help. In general, each auction results should be compared to previous auctions (same term) to get a feeling for the auction.*
 
@@ -34,11 +34,11 @@ knitr::opts_chunk$set(echo=F, dpi=300, fig.width=5, fig.height=3, dev.args = lis
 
 
 
-```{r, message=F, warning=F, fig.width=4, fig.height=2}
+```{r, message=F, warning=F, fig.width=4, fig.height=2.5}
 ## US Auction Stats
 
 
-df_plots <- dat %>%
+df_plots <- auctionsData %>%
 select(Date, Term, Size, SOMA, maturityDate, pricePer100)%>%
   mutate(Issuance = round(cumsum(Size),1))%>%
   mutate(Group = case_when(
@@ -70,8 +70,8 @@ df_plots <- df_plots  %>%
  
 
 fig_1 <- ggplot(df_plots, aes(x=Date, y=MA_6_auctions)) +
-   geom_line(aes(group=Term)) +
-   geom_point(aes(shape=Term)) +
+   geom_line(aes(color=Term)) +
+
    labs(
       title = "Auction Size (6 auction average)",
       x = "Date",
@@ -79,17 +79,18 @@ fig_1 <- ggplot(df_plots, aes(x=Date, y=MA_6_auctions)) +
       
    )+
      theme_classic()+
-  # theme(legend.position="bottom")+
+   #theme(legend.position="bottom")+
    theme(legend.title=element_blank())+
-   theme(legend.text=element_text(size=6))+
+      theme(legend.text=element_text(size=5))+
+
    theme(
       panel.grid.major.x = element_line(color = "grey80"),
       panel.grid.major.y = element_line(color = "grey80"),
-      #  panel.grid.minor.x = element_line(color = "grey80"),
+      panel.grid.minor.x = element_line(color = "grey80"),
       panel.grid.minor.y = element_line(color = "grey80"),
-      axis.text = element_text(size = 6), 
-      axis.title = element_text(size = 6),
-      plot.title = element_text(size = 6, face ="bold"))
+      axis.text = element_text(size = 5), 
+      axis.title = element_text(size = 5),
+      plot.title = element_text(size = 5, face ="bold"))
 
 
  
@@ -97,26 +98,35 @@ fig_1 <- ggplot(df_plots, aes(x=Date, y=MA_6_auctions)) +
 
 
 fig_2 <- ggplot(df_plots, aes(x=Date, y=MA_dv01_6_auctions)) +
-   geom_line(aes(group=Term)) +
-   geom_point(aes(shape=Term)) +
+   geom_line(aes(color=Term)) +
    labs(
       title = "Auction Dv01 (6 auction average)",
       x = "Date",
-      y = "Size (bln)"
+      y = "Dv01 (mln)"
       
    )+
      theme_classic()+
   # theme(legend.position="bottom")+
    theme(legend.title=element_blank())+
-   theme(legend.text=element_text(size=6))+
+   theme(legend.text=element_text(size=5))+
    theme(
       panel.grid.major.x = element_line(color = "grey80"),
       panel.grid.major.y = element_line(color = "grey80"),
-      #  panel.grid.minor.x = element_line(color = "grey80"),
+      panel.grid.minor.x = element_line(color = "grey80"),
       panel.grid.minor.y = element_line(color = "grey80"),
-      axis.text = element_text(size = 6), 
-      axis.title = element_text(size = 6),
-      plot.title = element_text(size = 6, face ="bold"))
+      axis.text = element_text(size = 5), 
+      axis.title = element_text(size = 5),
+      plot.title = element_text(size = 5, face ="bold"))
+
+
+
+fig_1
+
+fig_2
+
+ 
+
+
 
 
 
@@ -255,5 +265,3 @@ create_table2(auction_term)
 
 
 ```
-
-
