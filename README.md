@@ -4,7 +4,7 @@ This page aims to give an overview how to analyse US Treasury Auctions and to pr
 **US Treasury auctions**
 
 **Definitions**
-*High rate:* This is the highest yield that was accepted at the auction.
+*High rate:* This is the highest yield that was accepted at the auction. <br>
 *Alloted at high:* This is the percentage of the total what was filled at the highest yield.
 *Median rate:* Half of the competetive bids weere submitted below this rate, and half above.
 *Low yield:* The lowest submitted yield.
