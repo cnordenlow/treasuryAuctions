@@ -64,5 +64,5 @@ df <- auctionsData %>%
   filter(Term %in% c("2-Year", "3-Year", "5-Year", "7-Year", "10-Year", "20-Year", "30-Year"))%>%
   filter(Date > Sys.Date() -1500)%>%
   filter(floatingRate == "No")%>%
-  filter(tips != "TIPS")%>%
+  filter(tips == "No")%>%
   select(Cusip,Date,Term, Type, Size,  SOMA,highYield, allocationPercentage,bidToCoverRatio,Primary, Direct, Indirect)
