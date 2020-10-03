@@ -22,9 +22,11 @@ There are a couple of ways to interpret the results, some better and some worse.
 
 **Bid-to-cover:** Probably the most popular way to digest the result, probably due to it´s easy structure. The ratio says how large the interest of buying the bond where over the accepted volume. A Bid-to-cover rate of 2 indicated that there were 2 times more bids than accepted volume. However, even though the ratio says some, it dosen´t tell the whole truth. Even if there are a high ratio (a lot of underlying demand), it dosen´t say anything about the the quality of the bids. The overshooting bids could be significantly over the the high price, which in fact could indicate that there weren´t a lot of extra interest at the high price.
 
+**Amount of Bonds sold:** This is more or less only relevant if the auction fails, meaning that there werent enough bids for the fixed size.
 
+**Tail price:** Probably the best indicator if the auction were strong or weak. The tail is the difference of the high price the bond sold at the auction, and the market price of that bond just before the auction bidding deadline. If the high price is below the market price, it indicates a strong demand for the bond where US Treasury could issue the volume at a lower yield than the current market. If the high price on the other hand is above the market price, it´s a clear signal of a soft auction because US Treausry needed to pay a higher price than the market price for being able to issue it´s indicated volume.
 
-
+**The bidders**
 
 
 ### Code
