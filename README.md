@@ -26,7 +26,7 @@ There are a couple of ways to interpret the results, some better and some worse.
 
 **Tail price:** Probably the best indicator if the auction were strong or weak. The tail is the difference of the high price the bond sold at the auction, and the market price of that bond just before the auction bidding deadline. If the high price is below the market price, it indicates a strong demand for the bond where US Treasury could issue the volume at a lower yield than the current market. If the high price on the other hand is above the market price, it´s a clear signal of a soft auction because US Treausry needed to pay a higher price than the market price for being able to issue it´s indicated volume.
 
-**The bidders**
+**Breakdown of buyers:** Each auction summary results includes a breakdown of who bought the bonds. These data can give a indication if there were real demand or dealer demand as the main driver in the auction. *Indirect bidders* includes central banks which can be interpreted as a long term real demand, and a higher allocation percentage indicates a greater demand for the bond. *Direct bidders* are non-primary dealer institutions like pension funds, hedge funds, insurance companies. Direct bidding is an indicator of real money demand. *Primary dealers* are bidding for the own account, and are obligied to bid to backstop the auction if other demand was weak. A higher allocation percentage of direct bidders indicates a weak real demand of the bond.
 
 
 ### Code
