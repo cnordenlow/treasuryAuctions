@@ -1,5 +1,5 @@
 # treasuryAuctions<br>
-This page aims to give an overview how to analyse US Treasury Auctions and to provide neccesary code to import, gather, breakdown and visualize the results.
+This page aims to give an overview how to analyse US Treasury Auctions and to provide neccesary R-code to import, gather, breakdown and visualize the results.
 
 ### US Treasury auctions<br>
 The US Treasury uses a Dutch auction to sell it securities aimed to finance the country´s debt. In a Dutch auction structure the price of the offering is set after taking in all bids to determine the highest price at which the total offering can be sold. Investors place a bid for the amount they are willing to pay. When the auction is complete, the the allotment proces begin. The bids with the lowest yield will be accepted first since the buyer will prefer to pay lower yield. However, all investors will pay the highest rate.
