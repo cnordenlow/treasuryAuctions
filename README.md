@@ -29,4 +29,11 @@ There are a couple of ways to interpret the results, some better and some worse.
 **Breakdown of buyers:** Each auction summary results includes a breakdown of who bought the bonds. These data can give a indication if there were real demand or dealer demand as the main driver in the auction. *Indirect bidders* includes central banks which can be interpreted as a long term real demand, and a higher allocation percentage indicates a greater demand for the bond. *Direct bidders* are non-primary dealer institutions like pension funds, hedge funds, insurance companies. Direct bidding is an indicator of real money demand. *Primary dealers* are bidding for the own account, and are obligied to bid to backstop the auction if other demand was weak. A higher allocation percentage of direct bidders indicates a weak real demand of the bond.
 
 
-### Code
+### Code <br>
+Attached code will import (thru web scraping) data and to gather and transform it to a relevant output. The RMD-file will create a report that can be useful to get a feeling of the auctions.
+An extra function will be attached that downloads price data from bloomberg to give an indication of the tail (however, you will need a bloomberg account for being able to use this function).
+
+If you like to create the report -> cloone the repos and change the path-directionary in the RMD-file.
+
+Please contact me for further information.
+
