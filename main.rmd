@@ -1,8 +1,11 @@
 ---
-title: "US Auction Stats"
-author: "C.Nordenlöw"
+title: "US Treasury Auctions"
 date: "`r Sys.Date()`"
-output: html_document
+author: christoffer.nordenlow@riksbank.se
+output:
+  rmdformats::readthedown:
+    highlight: kate
+
 ---
 
 
