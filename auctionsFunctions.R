@@ -1,10 +1,20 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
 #Function to create table
 create_table2 <- function(auction_term){
   
-  #auction_term = "30-Year"
-  
+ # auction_term = "30-Year"
   ###
   df2 <- df %>%
     filter(Term == auction_term)%>%
@@ -21,7 +31,8 @@ create_table2 <- function(auction_term){
   df3 <- df2 %>%
     filter(Date < Sys.Date()) %>% ##ta bort kommande auktioner
     pivot_longer(
-      cols = c('Size(bn)':Indirect),
+#  cols = c('Size(bn)':Tail),
+      cols = starts_with('Size(bn)'),
       names_to = "figure",
       names_prefix = "value")
   
@@ -103,6 +114,13 @@ create_table2 <- function(auction_term){
                     cell_spec(Type, "html", bold = F),
                     cell_spec(Type, "html", bold = T)))%>%
     
+  #  mutate(
+  #    Tail = ifelse(Tail >  0,
+  #                  cell_spec(Tail, "html", color = "green"),
+  #                  cell_spec(Tail, "html", color = "red")))%>%
+    
+    
+    
     
     kable("html", escape = F, format.args=list(big.mark=" ", scientific=F)) %>%
     kable_styling(bootstrap_options = c("striped", "hover"), full_width = F, position= "right", fixed_thead = T)%>%
@@ -113,3 +131,4 @@ create_table2 <- function(auction_term){
   
   return(table)
 }
+
