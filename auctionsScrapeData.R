@@ -69,53 +69,53 @@ df <- auctionsData %>%
 
 
 
-
+#df3 <- df
 
 ## Below is using Bloomberg. Bloomberg is account is needed.
 ##get tail
 
-library(Rblpapi)
+#library(Rblpapi)
 library(data.table)
 library(lubridate)
 
-con <- blpConnect() 
+#con <- blpConnect() 
 
 
 #funkar men blir fel när det inte finns
 
-df2 <- df %>%
-  select(Date, Term, highYield)%>%
-  mutate(ticker = case_when(
-    Term == "2-Year" ~ "WIT2 Govt",
-    Term == "3-Year" ~ "WIT3 Govt",
-    Term == "5-Year" ~ "WIT5 Govt",
-    Term == "7-Year" ~ "WIT7 Govt",
-    Term == "10-Year" ~ "WIT10 Govt",
-    Term == "20-Year" ~ "WIT20 Govt",
-    Term == "30-Year" ~ "WIT30 Govt"
-  ))%>%
-  filter(ticker != "") %>%
-  mutate(
-    Date = ymd(Date, tz = "UTC"),
-    start_date = make_datetime(year(Date), month(Date), day(Date), 16, 58),
-    end_date = make_datetime(year(Date), month(Date), day(Date), 17, 00)
-  )%>%
+#df2 <- df %>%
+ # select(Date, Term, highYield)%>%
+#  mutate(ticker = case_when(
+#    Term == "2-Year" ~ "WIT2 Govt",
+ #   Term == "3-Year" ~ "WIT3 Govt",
+  #  Term == "5-Year" ~ "WIT5 Govt",
+   # Term == "7-Year" ~ "WIT7 Govt",
+    #Term == "10-Year" ~ "WIT10 Govt",
+#    Term == "20-Year" ~ "WIT20 Govt",
+ #   Term == "30-Year" ~ "WIT30 Govt"
+#  ))%>%
+ # filter(ticker != "") %>%
+#  mutate(
+ #   Date = ymd(Date, tz = "UTC"),
+  #  start_date = make_datetime(year(Date), month(Date), day(Date), 16, 58),
+  #  end_date = make_datetime(year(Date), month(Date), day(Date), 17, 00)
+  #)%>%
   
-  filter(Date > Sys.Date() -200)%>%
-  filter(Date < Sys.Date())
+#  filter(Date > Sys.Date() -200)%>%
+#  filter(Date < Sys.Date())
 
 
 
-df2 <- df2 %>% rowwise() %>% mutate(res = list(getBars(ticker, "BID", startTime= start_date, endTime=end_date))) 
+#df2 <- df2 %>% rowwise() %>% mutate(res = list(getBars(ticker, "BID", startTime= start_date, endTime=end_date))) 
 
 
-df2 <- df2%>%
+#df2 <- df2%>%
   #   unnest(res, keep_empty = TRUE)
-  unnest(res)
+ # unnest(res)
 
 
-df2 <- df2 %>%
-  mutate(Tail = (highYield - close)*100)
+#df2 <- df2 %>%
+#  mutate(Tail = (highYield - close)*100)
 
 
 ### Import historical tail info
@@ -144,15 +144,15 @@ df2 <- df2 %>%
 
 
 #select a few columns
-df3 <- df2 %>%
-  select(Date, Term, close, Tail)%>%
-  rename('WI BID 1PM' = close)
+#df3 <- df2 %>%
+#  select(Date, Term, close, Tail)%>%
+ # rename('WI BID 1PM' = close)
 
 
 
 
 #merge with blmrg
-df <- left_join(df, df3, by = c("Date", "Term"), all.x = TRUE)
+#df <- left_join(df, df3, by = c("Date", "Term"), all.x = TRUE)
 
 
 
