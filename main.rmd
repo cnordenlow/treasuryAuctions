@@ -1,7 +1,7 @@
 ---
 title: "US Treasury Auctions"
 date: "`r Sys.Date()`"
-author: christoffer.nordenlow@riksbank.se
+author: christoffer.nordenlow@outlook.com
 output:
   rmdformats::readthedown:
     highlight: kate
@@ -21,13 +21,6 @@ knitr::opts_chunk$set(echo=F, dpi=300, fig.width=5, fig.height=3, dev.args = lis
 #https://www.newyorkfed.org/markets/domestic-market-operations/monetary-policy-implementation/treasury-securities/treasury-securities-operational-details#current-schedule
 
 ```
-
-
-
-
-## Description {-}
-
-*US Treasury auction results are an important driver if the Fixed Income market. US Treasury auctions are so called dutch auctions, which means that every bidder will get the same price. Auctions provide insight on real demand for underlying securities. To determine if the auction were strong, solid och weak, there are a couple of number that can help. In general, each auction results should be compared to previous auctions (same term) to get a feeling for the auction.*
 
 
 
@@ -81,10 +74,15 @@ fig_1 <- ggplot(df_plots, aes(x=Date, y=MA_6_auctions)) +
       y = "Size (bln)"
       
    )+
-     theme_classic()+
+       theme_minimal() +
+     theme(legend.position="bottom",
+           legend.title=element_blank(),
+        plot.caption=element_text(hjust=0),
+        plot.subtitle=element_text(face="italic"),
+        plot.title=element_text(size=16,face="bold"))+
    #theme(legend.position="bottom")+
-   theme(legend.title=element_blank())+
-      theme(legend.text=element_text(size=5))+
+#   theme(legend.title=element_blank())+
+ #     theme(legend.text=element_text(size=5))+
 
    theme(
       panel.grid.major.x = element_line(color = "grey80"),
@@ -108,10 +106,13 @@ fig_2 <- ggplot(df_plots, aes(x=Date, y=MA_dv01_6_auctions)) +
       y = "Dv01 (mln)"
       
    )+
-     theme_classic()+
-  # theme(legend.position="bottom")+
-   theme(legend.title=element_blank())+
-   theme(legend.text=element_text(size=5))+
+       theme_minimal() +
+     theme(legend.position="bottom",
+           legend.title=element_blank(),
+        plot.caption=element_text(hjust=0),
+        plot.subtitle=element_text(face="italic"),
+        plot.title=element_text(size=16,face="bold"))+
+   #theme(legend.position="bottom")+
    theme(
       panel.grid.major.x = element_line(color = "grey80"),
       panel.grid.major.y = element_line(color = "grey80"),
@@ -123,9 +124,9 @@ fig_2 <- ggplot(df_plots, aes(x=Date, y=MA_dv01_6_auctions)) +
 
 
 
-fig_1
+#fig_1
 
-fig_2
+#fig_2
 
  
 
