@@ -13,8 +13,8 @@ output:
 
 ```{r setup, include=FALSE}
  
-source("C:\\Users\\chris\\Documents\\R_studio\\Git\\Git_treasuryAuctions\\treasuryAuctions\\auctionsScrapeData.R", encoding="UTF-8")
-source("C:\\Users\\chris\\Documents\\R_studio\\Git\\Git_treasuryAuctions\\treasuryAuctions\\auctionsFunctions.R", encoding="UTF-8")
+source("auctionsScrapeData.R", encoding="UTF-8")
+source("auctionsFunctions.R", encoding="UTF-8")
 knitr::opts_chunk$set(echo=F, dpi=300, fig.width=5, fig.height=3, dev.args = list(type = "cairo"), warning=F, message=F) 
 
 #[christoffer.nordenlow@riksbank.se](mailto:christoffer.nordenlow@riksbank.se) 
